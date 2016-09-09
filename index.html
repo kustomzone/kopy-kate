@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+ <title>Kopy Kate</title>
+ <meta charset="utf-8">
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ <link rel="stylesheet" href="css/all.css" />
+ <link rel="stylesheet" href="css/font.css">
+ <!-- Custom styles for this template -->
+ <link href="css/base.css" rel="stylesheet">
+ <base href="" target="_top" id="base">
+ <script>
+ setTimeout(function() {
+ 	base.href = document.location.href.replace("/media", "").replace("index.html", "").replace(/([&?])wrapper=False/, "$1").replace(/&$/, "").replace(/[&?]wrapper_nonce=[A-Za-z0-9]+/, "") // Fix urls
+ }, 100) // 100ms later, to workaround double js download in chrome
+ </script>
+ 
+ <style>
+ .vidbutton {
+  -webkit-border-radius: 12.5;
+  -moz-border-radius: 12.5;
+  border-radius: 12.5px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #0073e6;
+  padding: 2px 20px 2px 20px;
+  text-decoration: none;
+}
+
+.vidbutton:hover {
+  background: #ff2b80;
+  text-decoration: none;
+}
+</style>
+ 
+</head>
+<body>
+
+<!-- editbar -->
+<div class="editbg"></div>
+<div class="editbar bottombar">
+ <ul class="markdown-help">
+  <li># H1</li>
+  <li>## H2</li>
+  <li>### H3</li>
+  <li><i>_italic_</i></li>
+  <li><b>**bold**</b></li>
+  <li>~~<s>strikethrough</s>~~</li>
+  <li>- Lists</li>
+  <li>1. Numbered lists</li>
+  <li>[Links](http://www.zeronet.io)</li>
+  <li>[References][1]<br>[1]: Can be used</li>
+  <li>![image alt](img/logo.png)</li>
+  <li>Inline <code>`code`</code></li>
+  <li><code>```python<br>print "Code block"<br>```</code></li>
+  <li>&gt; Quotes</li>
+  <li>--- Horizontal rule</li>
+ </ul>
+ <a href="#Markdown+help" class="icon-help">?</a> Editing: <span class="object">Post:21.body</span> <a href="#Save" class="button save">Save</a> <a href="#Delete" class="button button-delete button-outline delete">Delete</a> <a href="#Cancel" class="cancel">Cancel</a>
+</div>
+<!-- EOF editbar -->
+
+<!-- Head with menu links -->
+<div class="topmenu">
+ <div class="links">
+  Menu:
+  <a href="?Home">Home</a> &middot;
+  <a href="upload.html" target="_blank">Upload</a> &middot;
+  <a href="magnet.html" target="_blank">Magnet Book</a> &middot;
+  <a href="https://handbrake.fr/" target="_blank">HandBrake</a> &middot;
+  <a href="http://webtorrent.io/desktop" target="_blank">WebTorrent Desktop</a> &middot;
+  Site version: v0.7 ALPHA
+ </div>
+</div>
+
+<div class="head">
+</div>
+<!-- EOF Head -->
+
+<div class="message-big">Initial sync in progress...</div>
+
+<!-- Page: Main -->
+<div class="center topics-list">
+<img style="top: 50px; left: 30px; width: 378px; height: 113px;" src="img/logo.png"></img>
+
+<div align="left"><input id="sr" size="50" style="margin-top: 5px"> </input> <button  onClick="search()" style="margin-top: 5px">Local Search</button> <button onClick="randomsearch()" style="margin-top: 5px">Random search</button>
+
+<a href="#New+topic" class="topic-new-link nolink"> + Upload new video!</a></div>
+
+<p style="color:#ff0066">Supported browsers: Firefox</p>
+<div style="margin-top:5px"></div>
+
+<div style="background-color: white; color: black;">
+<div id="start">
+<span id='curindex'></span>
+<div id="results"></div>
+</div>
+</div>
+
+ <!-- New Topic -->
+ <div class="topic topic-new" style="display: none">
+  <h2 class="title"><input type="text" id="topic_title" class="text" placeholder="Video title"></h2>
+  <div class="body"><textarea id="topic_body" placeholder="Description + Magnet link (copy from WebTorrent.Desktop or upload new video!)"></textarea></div>
+<br>  
+<a href="upload.html" target="_blank"><h2><b>Upload a .mp4 video!</b></h2><a>  
+ 
+  <div class="info"><a class="user_name user_name-my certselect" href="#Change+user" title='Change user'>user_name</a> &#9473; <span class="added">new video</span></div>
+  <a href="#Add+new+topic" class="button button-submit">Add new video</a>
+  <div style="clear: both"></div>
+ </div>
+ <!-- EOF New Topic -->
+
+ <div class="topics-loading"><img src="img/loading.gif"/>Loading...</div>
+
+ <div id="topics" class="topics">
+
+  <!-- Template: Topic -->
+  <div class="topic template">
+   <a href="#" class="image nolink"><div class="icon icon-topic-chat"></div></a>
+   <div style="margin-left: 100px">
+   <h2 class="title"><a href="#" class="title-link">Title</a></h2></span>
+   <div class="body">Body</div>
+   <a href="#" class="link"><div class="icon icon-link"></div> <span class="link-url"></span></a>
+   <div class="info">
+    <a class="score" href="#Upvote">
+     <span class="score-inactive"> <span class="icon-up">^</span><span class="score-num">1</span> </span>
+     <span class="score-active"> <span class="icon-up">^</span><span class="score-num">2</span> </span>
+    </a>
+    <a href="#" class="comment-num"></a>
+    <span class="added">added</span>
+     &#9473; submitted by <span class="user_name">user_name</span>
+     </div>
+   </div>
+  </div>
+  <!-- EOF Template: Topic main -->
+
+ </div>
+
+ <a href="#More" class="topics-more">More topics</a>
+
+</div>
+<!-- EOF Page: Main -->
+
+
+<!-- Page: Topic -->
+
+<div class="center topics-full">
+
+ <h1 class="topic-title">&nbsp;</h1>
+
+ <div class="topic topic-full">
+  <h2 class="title"><a id="videotitle" href="#" class="title-link">Title</a></h2>
+<!-- Video Player Location -->
+   <div style="width: 640px">
+   <div class="col-xs-12">
+   <div id="player"></div>
+   <img id="playnow" src="img/play.png" onclick="pageLoad()"></img>
+   <center>
+  <img id="magnetload" src="img/videoload.gif" style="display: none"></img></center>
+  <div class="speed"></div>
+  </div>
+  <div style="height: 64px; background: #eee; color:#F00;">
+  <div style="float: left; margin-top: 24px; margin-left: 25px">Right click the video and select 'Fullscreen' to toggle view!&nbsp;</div></div>
+  
+  <div class="info">
+      <a class="score" href="#Upvote">
+     <span class="score-inactive"> <span class="icon-up">^</span><span class="score-num">?</span> </span>
+     <span class="score-active"> <span class="icon-up">^</span><span class="score-num">0</span> </span>
+    </a>
+   <span class="user_name">username</span> posted <span class="added">added</span>
+   </div>
+  <div id="magnetbody" class="body"></div>
+  </div>
+  <div class="info">
+   
+<!-- Video Player Data -->
+
+        <div>
+     <div id="logHeading" style="display: none"></div>
+	 <div class="jumbotron">
+     <div class="log"></div>
+<input name="upload" type="hidden">
+     <form>
+     <div style="display: none">DEBUG: <input id="magnet" name="torrentId" placeholder="magnet:" size="50" required><button id="submitmagnet" type="submit">Download</button></div></input></form></div>
+</div>
+
+<!-- Load the torrent file from the post description -->
+
+<script type="text/javascript">
+    function pageLoad() {
+	  var magnetbody = document.getElementById("magnetbody").innerHTML
+	  var magnetlink = magnetbody.split("btih:")[1].substring(0,40)
+	  if (magnetlink !== '') {
+		document.getElementById("playnow").style.display = "none";
+		document.getElementById("magnetload").style.display = "block";
+		document.getElementById("magnet").value = magnetlink;
+		document.getElementById("submitmagnet").click();
+	  }
+	}
+	</script>
+
+  </div>
+ </div>
+
+ <!-- New comment -->
+ <div class="comment comment-new">
+  <div class="info"><a class="user_name user_name-my certselect" href="#Change+user" title='Change user'>user_name</a> &#9473; <span class="added">new comment</span></div>
+  <div class="body">
+   <a class="button button-submit button-certselect certselect" href="#Change+user"><div class='icon-profile'></div>Sign in as...</a>
+   <textarea id="comment_body"></textarea>
+   <a href="#Submit+comment" class="button button-submit button-submit-form">Submit comment</a>
+   <div style='float: right; margin-top: -6px; position: relative; text-align: right'>
+    <div class="user-size user-size-used">Used space: 22k/100k</div>
+    <div class="user-size">Used space: 22k/100k</div>
+    <div class="user-size-warning">You are running out of your allowed space, please contact the site's admin at <a href="#">unknown</a> to raise your limit.</div>
+   </div>
+   <div style="clear: both"></div>
+  </div>
+ </div>
+<!-- Comments -->
+ <div class="comments center">
+
+  <!-- Template: Comment -->
+  <div class="comment template">
+   <div class="info">
+    <span class="user_name">user_name</span>
+    &#9473;
+    <span class="added">added</span>
+    <a class="score" href="#Upvote">
+     <span class="score-inactive"> <span class="icon-up">^</span><span class="score-num">1</span> </span>
+     <span class="score-active"> <span class="icon-up">^</span><span class="score-num">2</span> </span>
+    </a>
+    <a href="#Reply" class="reply"><div class="icon icon-reply"></div> <span class="reply-text">Reply</span></a>
+   </div>
+   <div class="body">Body</div>
+  </div>
+  <!-- EOF Template: Comment -->
+ </div>
+ <a href="#More" class="comments-more">More comments</a>
+
+</div>
+<!-- EOF Page: Topic -->
+
+<!-- Template: menu -->
+<div class="menu template">
+ <a href="#" class="menu-item template">Template</a>
+</div>
+<!-- EOF Template: menu -->
+
+<script type="text/javascript" src="js/all.js"></script><br>
+<script src="js/share.js"></script>
+<script src="js/search-a.js"></script>
+
+<script>
+$(".topmenu a").each( function(i, elem) {
+    $(elem).attr("href", Text.fixLink($(elem).attr("href")))
+});
+</script>
+</body>
+</html>
