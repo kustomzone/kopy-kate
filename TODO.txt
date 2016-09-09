@@ -1,6 +1,0 @@
-TODO LIST:
-- Video player needs to be able to work on Chrome.
-- Need an admin interface to be able to delete video topics and comments.
-- Need to be able to directly search videos contained inside the .db database from index.html
-- Videos need to be able to instantly start playing once the Play button is clicked.
-- Create an application that instantly downloads and seeds any magnet links that are added to your .db database. This is to prevent videos from becoming seedless, due to lazy people forgetting to seed their videos after uploading magnet links!
